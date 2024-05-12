@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Phone Shop</title>
+
+		<!-- Tailwind -->
+		<link rel="stylesheet" href="styles/output.css" />
+
+		<!-- Slick carousel -->
+		<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+
+		<!-- Fontawesome -->
+		<script
+			src="https://kit.fontawesome.com/d521bbec8a.js"
+			crossorigin="anonymous"
+		></script>
+
+		<!-- Script -->
+		<script src="script.js" defer></script>
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+		<!-- Meta tags -->
+		<meta
+			name="description"
+			content="Mockup of a phone shop. Made with vanilla Javascript and TailwindCSS."
+		/>
+		<meta
+			name="keywords"
+			content="Javascript, vanilla javascript, tailwindcss, daisyui, html, css, phone shop, phone finder, phone shop finder, phone shop"
+		/>
+		<meta name="author" content="Nirzon Taru Karmakar" />
+		<meta name="robots" content="index, follow" />
+	</head>
+	<body class="w-screen min-h-screen px-4 py-8 md:py-12 md:px-16">
+		<!-- Header -->
+		<header
+			class="flex flex-col items-center justify-between gap-4 md:flex-row"
+		>
+			<!-- Page name -->
+			<h2 class="text-xl font-bold md:text-3xl">Phone Shop</h2>
+			<!-- Sign up button -->
+			<button class="btn btn-secondary btn-sm md:btn-md">Sign Up</button>
+		</header>
+
+		<!-- Main content -->
+		<main class="pt-16 pb-12">
+			<!-- Main heading -->
+			<h1
+				class="w-11/12 mx-auto text-2xl font-bold text-center md:w-full md:text-5xl"
+			>
+				Apple iPhone 13 Pro Max
+			</h1>
+
+			<!-- Carousel -->
+			<div class="slick-carousel">
+				<img
+					src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-finish-unselect-gallery-1-202207_GEO_EMEA?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1654894184583"
+					alt="All variants"
+				/>
+				<img
+					src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-finish-unselect-gallery-2-202207?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1654894177855"
+					alt="Green"
+				/>
+				<img
+					src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-finish-unselect-gallery-3-202207_GEO_EMEA?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1654894174822"
+					alt="Pink"
+				/>
+				<img
+					src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-finish-unselect-gallery-4-202207?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1654894186187"
+					alt="Close up"
+				/>
+			</div>
+		</main>
+
+		<!-- Search content -->
+		<section class="pb-8">
+			<!-- Search heading -->
+			<h2 class="mb-4 text-2xl font-bold text-center md:text-3xl">
+				Search for your phone
+			</h2>
+
+			<!-- Search input -->
+			<form
+				class="flex flex-col justify-center gap-2 pb-8 md:flex-row"
+				id="form"
+			>
+				<input
+					type="text"
+					placeholder="Type here"
+					class="w-full max-w-xs input input-bordered"
+					id="search"
+				/>
+				<button type="submit" class="btn btn-primary">Search</button>
+			</form>
+
+			<!-- Loading -->
+			<span
+				class="block mx-auto duration-300 opacity-0 loading loading-dots loading-lg"
+				id="loading"
+			></span>
+
+			<!-- Not found -->
+			<p
+				class="mx-auto text-2xl font-bold text-center duration-300 opacity-0 text-error"
+				id="not-found"
+			>
+				No matching results
+			</p>
+
+			<!-- Search results -->
+			<section
+				class="flex flex-wrap items-center justify-center gap-4 pb-8 duration-300"
+				id="cards"
+			>
+				<!-- Mockup data -->
+				<div class="card-container">
+					<figure class="px-10 pt-10">
+						<img
+							src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg"
+							alt="Shoes"
+							class="rounded-xl"
+						/>
+					</figure>
+					<div class="items-center text-center card-body">
+						<h2 class="mb-2 card-title">iPhone 13 Pro Max</h2>
+						<div class="card-actions">
+							<button class="btn btn-accent" onclick="my_modal_2.showModal()">
+								See details
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<!-- <footer class="p-10 footer footer-center bg-primary text-primary-content">
+			<aside>
+				<svg
+					width="50"
+					height="50"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					class="inline-block mb-4 fill-current"
+				>
+					<path
+						d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"
+					></path>
+				</svg>
+				<p class="font-bold">Made with ❤️ by Nirzon Karmakar <br /></p>
+			</aside>
+			<nav>
+				<div class="grid grid-flow-col gap-4">
+					<a href="https://github.com/nirzon47"
+						><i class="fa-brands fa-github fa-2xl"></i
+					></a>
+				</div>
+			</nav>
+		</footer> -->
+
+		<dialog class="modal" id="modal">
+			<div class="duration-100 modal-box" id="modal-box">
+				<img
+					src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg"
+					class="pb-4 mx-auto rounded-xl"
+					id="image"
+				/>
+				<h3 class="text-lg font-bold" id="name">iPhone 13 Pro Max</h3>
+				<div class="flex flex-col gap-1 font-semibold text-left">
+					<p class="pt-4">
+						Brand: <span class="font-normal" id="brand">Apple</span>
+					</p>
+					<p>
+						Storage:
+						<span class="font-normal" id="storage"
+							>128GB/256GB/1TB storage, no card slot</span
+						>
+					</p>
+					<p>
+						Display:
+						<span class="font-normal" id="display"
+							>6.7 inches, 109.8 cm2 (~87.4% screen-to-body ratio)</span
+						>
+					</p>
+					<p>
+						Processor:
+						<span class="font-normal" id="processor"
+							>Apple A15 Bionic (5 nm)</span
+						>
+					</p>
+					<p>
+						RAM:
+						<span class="font-normal" id="ram"
+							>128GB 6GB RAM, 256GB 6GB RAM, 512GB 6GB RAM, 1TB 6GB RAM</span
+						>
+					</p>
+					<p>
+						Sensors:
+						<span class="font-normal" id="sensors">
+							Face ID, Accelerometer, Gyro, Proximity, Compass, Barometer
+						</span>
+					</p>
+					<p class="pb-4 text-center" id="released">
+						
+					</p>
+				</div>
+			</div>
+			<form method="dialog" class="modal-backdrop">
+				<button>close</button>
+			</form>
+		</dialog>
+
+		<!-- Slick carousel stuff -->
+		<script
+			type="text/javascript"
+			src="//code.jquery.com/jquery-1.11.0.min.js"
+		></script>
+		<script
+			type="text/javascript"
+			src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+		></script>
+		<script type="text/javascript" src="slick/slick.min.js"></script>
+	</body>
+</html>

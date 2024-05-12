@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.card-container {
+		@apply shadow-xl card w-[95%] md:w-[48%] lg:w-[31%] bg-base-100 outline outline-1 outline-zinc-300;
+	}
+}
